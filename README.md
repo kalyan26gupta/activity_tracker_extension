@@ -1,35 +1,77 @@
-To start Chrome with remote debugging enabled, follow these steps:
-Step 1: Close All Running Instances of Chrome
-Make sure all instances of Chrome are closed before proceeding.
+Got it! Here’s a concise guide on how to set up and run your activity tracker project without including code:
 
-Step 2: Create a New User Data Directory
-This will allow Chrome to run with a fresh profile, which is necessary for debugging.
+---
 
-Create a New Directory:
-Open File Explorer and create a new folder on your computer, e.g., C:\selenum\ChromeProfile.
-Step 3: Open Command Prompt
-Press Win + R, type cmd, and hit Enter to open the Command Prompfwddwwt.
-Step 4: Start Chrom
+# Activity Tracker Project Setup and Run Guide
 
-e with Remote Debugging
-In the Command Prompt, type the following command to start Chrome with remote debugging enabled:
-bash
-Copy code
-"C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --user-data-dir="C:\Selenum\ChromeProfile"
-Make sure to adjust the path to chrome.exe if Chrome is installed in a different directory.
-Step 5: Verify Remote Debugging is Active
-Open a web browser and go to http://localhost:9222.
-You should see a page listing all open tabs in Chrome, indicating that remote debugging is enabled.
-Step 6: Run Your Python Script
-Now, you can run your Python script (the activity tracker) in a separate terminal or command prompt:
-bash
-Copy code
-python tracker.py
-Summary
-This setup will allow your Python script to connect to the Chrome instance running with remote debugging, enabling you to track the active tab's URL. Make sure to keep both Chrome and your script running to track your activities properly. If you encounter any issues, feel free to ask for further assistance!
+## Overview
+The Activity Tracker is a tool designed to monitor your activities across different platforms, including your browser and Gmail. It categorizes reminders and tracks entertainment content.
 
+## Prerequisites
+- Basic knowledge of Git and GitHub
+- Python 3.x installed
+- Google Chrome installed
+- Access to Gmail for reminders
 
+## Step-by-Step Setup
 
+### 1. Clone the Repository
+1. Open your terminal or command prompt.
+2. Clone the project repository:
+   ```bash
+   git clone https://github.com/yourusername/activity_tracker.git
+   ```
+3. Navigate to the project directory:
+   ```bash
+   cd activity_tracker
+   ```
 
+### 2. Create a Virtual Environment
+1. Set up a virtual environment:
+   ```bash
+   python -m venv venv
+   ```
+2. Activate the virtual environment:
+   - On Windows:
+     ```bash
+     venv\Scripts\activate
+     ```
+   - On macOS/Linux:
+     ```bash
+     source venv/bin/activate
+     ```
 
+### 3. Install Dependencies
+Install the required libraries by running:
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Set Up Gmail API
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
+2. Create a new project.
+3. Enable the Gmail API for the project.
+4. Create credentials (OAuth 2.0 Client IDs) and download the `credentials.json` file.
+5. Place the `credentials.json` file in the project directory.
+
+### 5. Configure the Database
+1. Ensure the database file path is correctly set in the code (usually in the main Python file).
+2. The application will create a database file if it doesn’t already exist.
+
+### 6. Run the Backend
+1. Start the backend script:
+   ```bash
+   python tracker.py
+   ```
+2. This will initialize the tracking process.
+
+### 7. Load the Chrome Extension
+1. Open Google Chrome and navigate to `chrome://extensions`.
+2. Enable "Developer mode" in the top right corner.
+3. Click "Load unpacked" and select the `frontend` directory from your project.
+
+### 8. Usage
+- The tracker will start monitoring your activities.
+- For Gmail, it will fetch reminders based on your settings.
+- Activities will be logged in the database for reference.
 
